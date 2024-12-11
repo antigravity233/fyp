@@ -1,0 +1,103 @@
+@import 'root.css';
+
+
+#block {
+    position: relative;
+    background-color: #ffff;
+    width: 80%;
+    height: fit-content;
+    min-height: 30%;
+    border: solid .5px lightgray;
+    border-radius: 10px;
+    transform: translateY(-8%);
+    margin: 0 auto;
+    padding: 2% 0 1% 0;
+    margin-top: 150px;
+}
+
+#title {
+    text-align: center;
+    font-size: 4vh;
+    font-weight: bold;
+}
+
+div#btn {
+    width: 90%;
+    display: block;
+    padding: 3%;
+}
+
+a#back-btn {
+    float: left;
+}
+
+
+a#back-btn {
+    font-size: 2vh;
+    font-weight: bold;
+    width: 15vh;
+    text-align: center;
+    padding: 1% 0;
+    border-radius: 10px;
+    text-decoration: none;
+    border: solid 5px var(--green-color);
+    color: var(--green-color);
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+#modify-election {
+    width: 90%;
+    padding-top: 3%;
+    margin-left: 5%;
+    align-items: start;
+    border: solid 5px var(--green-color);
+}
+
+p#election-title {
+    justify-content: center;
+    font-weight: bold;
+    font-size: 4vh;
+    margin-left: 3.5%;
+    margin-bottom: 3.5%;
+}
+
+p.rtitle {
+    width: 50%;
+    margin: .5% 0;
+    font-size: 3vh;
+    justify-content: center;
+    margin-left: 10%;
+}
+
+input.rvalue, select.rvalue, textarea.rvalue {
+    width: 80%;
+    outline: none;
+    border: none;
+    font-size: 3vh;
+    border-bottom: solid 2px var(--primary-color);
+    justify-content: center;
+    margin-left: 10%;
+}
+
+textarea.rvalue {
+    border-right: solid 2px var(--primary-color);
+    resize: vertical;
+    height: fit-content;
+    min-height: 5vh;
+}
+
+input#modify-btn {
+    font-size: 4vh;
+    font-weight: bold;
+    width: 40%;
+    text-align: center;
+    padding: 1% 0;
+    border-radius: 10px;
+    margin-left: 30%;
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <link rel="stylesheet" href="css/admin_election.css">
+    <title>BlockVote</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <a>BlockVote</a>
+        <a href="index.html" class="select">Log Out</a>
+        <a href="admin_reset_password.html" class="select">Reset Password</a>
+        <a href="admin_election.html" class="select">Election</a>
+        <a href="user_list.html" class="select">User List</a>
+        <a href="dashboard.html" class="select">Dashboard</a>
+    </div>
+
+
+    <div id="block">
+        <p id="titleOfTable">Election</p>
+        <div id="btn-bar">
+            <a href="create_election.html" id="create-btn">Create</a>
+        </div>
+
+        <table>
+            <tr>
+                <td>Election ID</td>
+                <td>Election Name</td>
+                <td>Status</td>
+                <td>Modify Election</td>
+                <td>Election Detail</td>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+
+<script src="js/connectContract.js"></script>
+<script src="js/admin_election.js"></script>
+<script>
+    (async function () {
+        await accessToMetamask();
+        await loadElection();
+
+    })();
+</script>
+
+</html>

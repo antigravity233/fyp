@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <title>BlockVote</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <a>BlockVote</a>
+        <a href="index.html" class="select">Log Out</a>
+        <a href="admin_reset_password.html" class="select">Reset Password</a>
+        <a href="admin_election.html" class="select">Election</a>
+        <a href="user_list.html" class="select">User List</a>
+        <a href="dashboard.html" class="select">Dashboard</a>
+    </div>
+
+
+    <div id="dashboard">
+        <p id="titleOfTable">Validate Request</p>
+        <table>
+            <tr>
+                <td>Request ID</td>
+                <td>User Address</td>
+                <td>Username</td>
+                <td>Election ID</td>
+                <td>Role</td>
+                <td>Validate</td>
+                <td>Decilne</td>
+            </tr>
+
+        </table>
+    </div>
+
+
+</body>
+<script src="js/connectContract.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  (async function () {
+        await accessToMetamask();
+        await listRequest();
+    })()
+</script>
+
+</html>

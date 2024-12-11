@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+  <link rel="stylesheet" href="css/index.css">
+  <title>BlockVote</title>
+</head>
+
+<body>
+  <div class="topnav">
+    <a>BlockVote</a>
+    <a href="admin_signup.html" class="select">Admin Sign Up</a>
+    <a href="admin_login.html" class="select">Admin Login</a>
+    <a href="signup.html" class="select">Sign Up</a>
+    <a href="index.html" class="select">Login</a>
+  </div>
+
+  <div class="login">
+    <div>
+      <P id="title">Login</P>
+    </div>
+    <div class="input">
+      <div>
+        <p>Address</p>
+        <input type="text" name="address" id="address">
+      </div>
+      <div>
+        <p>Password</p>
+        <input type="text" name="password" id="password">
+      </div>
+      <div id="forget">
+        <a href="login_forget.html">Forget Your Password?</a>
+      </div>
+      <div class="button">
+        <input type="button" name="login-btn" id="login-btn" value="login" onclick="javascipt:login()">
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script src="js/connectContract.js"></script>
+<script src="js/index.js"></script>
+<script>
+	async function login() {
+		await accessToMetamask();
+		userLogin();
+	}
+</script>
+
+</html>

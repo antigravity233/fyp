@@ -1,0 +1,124 @@
+@import 'root.css';
+
+
+#election {
+    position: relative;
+    top: 50px;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 7%;
+}
+
+.block {
+    margin-bottom: 2%;
+    border-radius: 5px;
+    border: solid 1px lightgrey;
+    background-color: white;
+    padding: 2% 0;
+}
+
+.block > div {
+    width: 93%;
+    margin: 0 auto;
+    display: flex;
+}
+
+p#election-title {
+    font-weight: bold;
+    font-size: 4vh;
+    margin-left: 3.5%;
+    margin-bottom: 3.5%;
+}
+
+#election-list, #election-list-can, #election-list-voter, #election-list-result  {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3%;
+    align-items: start;
+}
+
+p.list-title{
+    font-weight: bold;
+    font-size: 3vh;
+    margin-left: 3.5%;
+    margin-bottom: 1%;
+}
+
+.election {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px lightgrey;
+    margin-bottom: 5%;
+    padding: 4% 0 1% 0;
+    min-height: 30vh;
+    margin-left: 4%;
+    margin-right: 4%;
+    border: solid 5px var(--green-color);
+}
+
+.election > * {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+.election-detail {
+    font-weight: bold;
+    align-items: end;
+    margin-bottom: 2vh !important;
+}
+
+.election-dead {
+    font-size: 2vh;
+}
+.election-date {
+    font-size: 2vh;
+}
+
+.election-name {
+    font-size: 2.5vh;
+    color: var(--primary-color);
+}
+
+.election-des {
+    min-height: 10vh;
+    max-height: 20vh;
+    overflow-y: scroll;
+    line-height: 2.5vh;
+    font-size: 1.9vh;
+}
+
+.can-btn, .vote-btn, .result-btn, .voter-btn {
+    margin-top: 4vh !important;
+    outline: none;
+    background-color: transparent;
+    border: solid 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: ease .1s;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2vh;
+    text-align: center;
+    padding: 1% 0;
+    color: var(--green-color);
+    border-color: var(--green-color);
+}
+
+.can-btn:hover, .vote-btn:hover, .result-btn:hover, .voter-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.election-cat {
+    border: solid 3px var(--primary-color);
+    color: var(--b-primary-color);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: .5% 2%;
+    margin-top: 4%;
+    border-radius: 5px;
+}

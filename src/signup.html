@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+  <link rel="stylesheet" href="css/signup.css">
+  <title>BlockVote</title>
+</head>
+
+<body>
+  <div class="topnav">
+    <a>BlockVote</a>
+    <a href="admin_signup.html" class="select">Admin Sign Up</a>
+    <a href="admin_login.html" class="select">Admin Login</a>
+    <a href="signup.html" class="select">Sign Up</a>
+    <a href="index.html" class="select">Login</a>
+  </div>
+
+  <div class="signup">
+    <div>
+      <P id="title">Sign Up</P>
+    </div>
+    <div class="input">
+      <div>
+        <p>Address</p>
+        <input type="text" name="address" id="address">
+      </div>
+      <div>
+        <p>Name</p>
+        <input type="text" name="name" id="name">
+      </div>
+      <div>
+        <p>Email</p>
+        <input type="email" name="email" id="email">
+      </div>
+      <div>
+        <p>Password</p>
+        <input type="text" name="password" id="password">
+      </div>
+      <div>
+        <p>Confirmation Password</p>
+        <input type="text" name="confirm_password" id="confirm_password">
+      </div>
+      <div class="button">
+        <input type="button" name="signup-btn" id="signup-btn" value="Sign Up" onclick="javascipt:userSignUp()">
+      </div>
+    </div>
+  </div>
+
+
+</body>
+<script src="js/connectContract.js"></script>
+<script src="js/signup.js"></script>
+<script>
+  accessToMetamask();
+</script>
+
+</html>

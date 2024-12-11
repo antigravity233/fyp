@@ -1,0 +1,102 @@
+@import 'root.css';
+
+
+#block {
+    position: relative;
+    background-color: #ffff;
+    width: 80%;
+    height: fit-content;
+    min-height: 30%;
+    border: solid .5px lightgray;
+    border-radius: 10px;
+    transform: translateY(-8%);
+    margin: 0 auto;
+    padding: 2% 0 1% 0;
+    margin-bottom: 2%;
+    margin-top: 100px;
+
+}
+
+
+#titleOfTable {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 4vh;
+    font-weight: bold;
+}
+
+#block>table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#block>table tr:first-child td {
+    font-weight: bold;
+}
+
+#block>table tr td {
+    line-height: 6vh;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+}
+
+#block>table tr td:first-child {
+    padding-left: 6%;
+}
+
+#block>table tr td:last-child {
+    padding-right: 6%
+}
+
+#block>table tr:last-child td {
+    border-bottom: none;
+}
+
+#btn-bar {
+    height: 17%;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    padding-bottom: 20px;
+
+}
+
+
+#create-btn {
+    background-color: transparent;
+    color: var(--green-color);
+    font-size: 2vh;
+    font-weight: bold;
+    width: 15vh;
+    width: 10%;
+    text-align: center;
+    padding: 1% 0;
+    border: 5px solid;
+    border-color: var(--green-color);
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+ .view-btn, .modify-btn {
+    background-color: transparent;
+    outline: none;
+    font-weight: bold;
+    font-size: 2vh;
+    cursor: pointer;
+    margin: 2% 2% 2% 2%;
+    padding: 1% 9%;
+    border-radius: 10px;
+    width: 30px;
+    text-align: center;
+    display: flex;
+    text-decoration: none;
+    border: solid 5px var(--green-color);
+    color: var(--green-color);
+  }
+
+  
+#create-btn:hover, .view-btn:hover, .del-btn:hover, .modify-btn:hover  {
+    border-color: var(--link-color);
+    background-color: white;
+    color: var(--link-color);
+}

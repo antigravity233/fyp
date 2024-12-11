@@ -1,0 +1,61 @@
+@import 'root.css';
+
+
+#block {
+    position: relative;
+    background-color: #ffff;
+    width: 80%;
+    height: fit-content;
+    min-height: 30%;
+    border: solid .5px lightgray;
+    border-radius: 10px;
+    transform: translateY(-8%);
+    margin: 0 auto;
+    padding: 2% 0 1% 0;
+    margin-bottom: 2%;
+    margin-top: 100px;
+
+}
+
+#titleOfTable {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 4vh;
+    font-weight: bold;
+}
+
+
+#block>table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#block>table tr:first-child td {
+    font-weight: bold;
+}
+
+#block>table tr td {
+    line-height: 6vh;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+}
+
+#block>table tr td {
+    line-height: 6vh;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+}
+
+#block>table tr td:first-child {
+    padding-left: 3%;
+    
+}
+
+#block>table tr td:last-child {
+    padding-right: 3%
+}
+
+#block>table tr:last-child td {
+    border-bottom: none;
+}
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <link rel="stylesheet" href="css/voting.css">
+    <title>BlockVote</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <a>BlockVote</a>
+        <a href="index.html" class="select">Log Out</a>
+        <a href="reset_password.html" class="select">Reset Password</a>
+        <a href="election.html" class="select">Election</a>
+    </div>
+
+    <div id="voter">
+        <div class="block">
+            <p id="voting-title">Voting</p>
+
+            <div id="btn">
+                <a id="back-btn" href="election.html">Back</a>
+            </div>
+
+            <p id="candidate">Candidate List</p>
+
+            <div id="candiddate_list">
+
+            </div>
+
+        </div>
+
+</body>
+<script src="js/connectContract.js"></script>
+<script src="js/voting.js"></script>
+<script>
+    (async function () {
+        await accessToMetamask();
+        candidateList();
+    })();
+</script>
+
+</html>

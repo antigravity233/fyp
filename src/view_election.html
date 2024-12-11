@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <link rel="stylesheet" href="css/view_election.css">
+    <title>BlockVote</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <a>BlockVote</a>
+        <a href="index.html" class="select">Log Out</a>
+        <a href="admin_reset_password.html" class="select">Reset Password</a>
+        <a href="admin_election.html" class="select">Election</a>
+        <a href="user_list.html" class="select">User List</a>
+        <a href="dashboard.html" class="select">Dashboard</a>
+    </div>
+
+
+    <div id="block">
+        <p id="electionName">Student Council Election</p>
+
+        <div id="btn">
+            <a id="back-btn" href="admin_election.html">Back</a>
+            <input type="button" id="status-btn" value="End" onClick="javascipt:endElection()"/>
+            <input type="button" id="status-btn" value="Start" onClick="javascipt:startElection()"/>
+        </div>
+
+        <div id="election_detail">
+        </div>
+
+    </div>
+
+
+</body>
+<script src="js/connectContract.js"></script>
+<script src="js/view_election.js"></script>
+<script>
+    (async function () {
+        await accessToMetamask();
+        viewElection();
+        candidateList();
+    })();
+</script>
+
+</html>

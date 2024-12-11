@@ -1,0 +1,58 @@
+:root {
+    --primary-color: #857C91;
+    --white-color: #FAFBFD;
+    --standout-color: #E894A2;
+    --deco-color: #FAEAFF;
+    --link-color: #5B7C97;
+    --green-color: #cbe9bf;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url(../img/background.jpeg);
+}
+
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #cbe9bf;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    width: 100%;
+}
+
+
+
+.topnav a {
+    display: block;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+    float: left;
+}
+
+.topnav a.select {
+    float: right;
+    padding: 10px 30px 10px 30px;
+}
+
+a.select:hover {
+    background-color: var(--link-color);
+    color: var(--white-color);
+}
+

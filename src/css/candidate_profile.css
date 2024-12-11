@@ -1,0 +1,98 @@
+
+@import 'root.css';
+
+
+#candidate {
+    position: relative;
+    top: 100px;
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 7%;
+}
+
+.block {
+    margin-bottom: 2%;
+    border-radius: 5px;
+    border: solid 1px lightgrey;
+    background-color: white;
+    padding: 2% 0;
+}
+
+.block > div {
+    width: 93%;
+    margin: 0 auto;
+}
+
+p#candidate-title {
+    justify-content: center;
+    font-weight: bold;
+    font-size: 4vh;
+    margin-left: 3.5%;
+    margin-bottom: 3.5%;
+}
+
+p.rtitle {
+    width: 25%;
+    margin: .5% 0;
+    font-size: 3vh;
+    justify-content: center;
+    margin-left: 10%;
+}
+
+
+input.rvalue, select.rvalue, textarea.rvalue {
+    width: 80%;
+    outline: none;
+    border: none;
+    font-size: 3vh;
+    border-bottom: solid 2px var(--primary-color);
+    justify-content: center;
+    margin-left: 10%;
+}
+
+#drop-area{
+    width: 80%;
+    height: 200px;
+}
+
+textarea.rvalue {
+    border-right: solid 2px var(--primary-color);
+    resize: vertical;
+    height: fit-content;
+    min-height: 5vh;
+}
+
+#btn {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: start;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+#btn a#back-btn, #btn input#edit-can {
+    font-size: 2vh;
+    font-weight: bold;
+    width: 15vh;
+    text-align: center;
+    padding: 1% 0;
+    border-radius: 10px;
+    margin-left: 25%;
+}
+
+#btn a#back-btn {
+    text-decoration: none;
+    border: solid 3px var(--primary-color);
+    color: var(--primary-color);
+}
+
+#btn input#edit-can {
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+

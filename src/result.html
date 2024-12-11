@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"> </script>
+    <link rel="stylesheet" href="css/result.css">
+    <title>BlockVote</title>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a>BlockVote</a>
+        <a href="index.html" class="select">Log Out</a>
+        <a href="admin_reset_password.html" class="select">Reset Password</a>
+        <a href="admin_election.html" class="select">Election</a>
+        <a href="user_list.html" class="select">User List</a>
+        <a href="dashboard.html" class="select">Dashboard</a>
+    </div>
+
+
+    <div id="block">
+        <p id="result">Result</p>
+
+        <div id="btn">
+            <a id="back-btn" href="admin_election.html">Back</a>
+            <input type="button" name="print-btn" id="print-btn" value="Print" onclick="printResult()">
+        </div>
+
+        <div id="election_detail">
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        function printResult() {
+            const { jsPDF } = window.jspdf;
+
+            let doc = new jsPDF('p', 'pt', 'a4');
+            let pdfjs = document.querySelector('#election_detail');
+
+            doc.html(pdfjs, {
+                html2canvas: {
+                    scale: 0.5,
+                },
+                callback: function (doc) {
+                    doc.save("election_result.pdf");
+                },
+                x: 8,
+                y: 8
+            });
+
+
+        }            
+    </script>
+
+</body>
+<script src="js/connectContract.js"></script>
+<script src="js/result.js"></script>
+<script>
+    (async function () {
+        await accessToMetamask();
+        viewElection();
+        candidateList();
+    })()
+
+</script>
+
+</html>

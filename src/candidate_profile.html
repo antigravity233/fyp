@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <link rel="stylesheet" href="css/candidate_profile.css">
+    <title>BlockVote</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <a>BlockVote</a>
+        <a href="index.html" class="select">Log Out</a>
+        <a href="reset_password.html" class="select">Reset Password</a>
+        <a href="election.html" class="select">Election</a>
+
+    </div>
+
+    <div id="candidate">
+        <div class="block">
+            <p id="candidate-title">Candidate Profile</p>
+
+                <div class="input">
+                    <div>
+                        <p class="rtitle">Candidate Name:</p>
+                        <input type="text" name="can-name" id="can-name" value="" class="rvalue">
+                    </div>
+                    <div>
+                        <p class="rtitle">Age</p>
+                        <input type="number" name="can-age" id="can-age" value="" class="rvalue">
+                    </div>
+                    <div>
+                        <p class="rtitle">Description:</p>
+                        <textarea name="can-desc" id="can-desc" class="rvalue"></textarea>
+                    </div>
+
+                </div>
+
+                <div id="btn">
+                    <a id="back-btn" href="election.html">Back</a>
+                    <input type="button" name="edit-can" id="edit-can" value="Edit" onclick="javascript:editProfile()">
+                </div>
+            </div>
+
+
+        </div>
+</body>
+<script src="js/connectContract.js"></script>
+<script src="js/candidate_profile.js"></script>
+<script>
+    accessToMetamask();
+</script>
+
+</html>

@@ -1,0 +1,74 @@
+@import 'root.css';
+
+.login {
+  background-color: var(--white-color);
+  position: relative;
+  top: 200px;
+  width: 30%;
+  height: fit-content;
+  min-height: 30%;
+  border: solid .5px lightgray;
+  border-radius: 10px;
+  transform: translateY(-30%);
+  margin: 0 auto;
+  padding: 3% 0;
+}
+
+#title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.input {
+  width: 80%;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input>div>p {
+  font-size: 3vh;
+}
+
+#forget>a {
+  margin-top: 2%;
+  margin-bottom: 4%;
+  font-size: 2vh;
+  text-decoration: underline;
+  color: var(--link-color);
+}
+
+
+.input>div>input:not([type='button']) {
+  width: 100%;
+  border: none;
+  border-bottom: solid 3px var(--green-color);
+  padding: 1% 0;
+  margin-bottom: 2%;
+  outline: none;
+  font-size: 3vh;
+}
+
+
+#login-btn {
+  background-color: transparent;
+  border: solid 3px var(--green-color);
+  outline: none;
+  color: var(--green-color);
+  font-weight: bold;
+  font-size: 3vh;
+  padding: 1% 4%;
+  cursor: pointer;
+  margin-top: 3%;
+  border-radius: 10px;
+  width: 60%;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+#login-btn:hover {
+  background-color: var(--link-color);
+  color: var(--white-color);
+}

@@ -1,0 +1,89 @@
+@import 'root.css';
+
+
+#dashboard {
+    position: relative;
+    background-color: #ffff;
+    width: 80%;
+    height: fit-content;
+    min-height: 30%;
+    border: solid .5px lightgray;
+    border-radius: 10px;
+    transform: translateY(-8%);
+    margin: 0 auto;
+    padding: 2% 0 1% 0;
+    margin-bottom: 2%;
+    margin-top: 100px;
+
+}
+
+#titleOfTable {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 4vh;
+    font-weight: bold;
+}
+
+#dashboard>table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#dashboard>table tr:first-child td {
+    font-weight: bold;
+}
+
+#dashboard>table tr td {
+    line-height: 6vh;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+}
+
+#dashboard>table tr td:first-child {
+    padding-left: 3%;
+}
+
+#dashboard>table tr td:last-child {
+    padding-right: 3%
+}
+
+#dashboard>table tr:last-child td {
+    border-bottom: none;
+}
+
+#dashboard a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+.valid-btn, .dec-btn {
+    background-color: transparent;
+    outline: none;
+    font-weight: bold;
+    font-size: 2vh;
+    padding: 5% 5%;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+  }
+
+  .valid-btn{
+    border: solid 3px var(--green-color);
+    color: var(--green-color);
+  }
+
+  .dec-btn{
+    border: solid 3px var(--standout-color);
+    color: var(--standout-color);
+  }
+  
+  .valid-btn:hover, .dec-btn:hover  {
+    background-color: var(--link-color);
+    color: var(--white-color);
+  }
+

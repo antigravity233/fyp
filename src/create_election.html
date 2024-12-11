@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <link rel="stylesheet" href="css/create_election.css">
+    <title>BlockVote</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <a>BlockVote</a>
+        <a href="index.html" class="select">Log Out</a>
+        <a href="admin_reset_password.html" class="select">Reset Password</a>
+        <a href="admin_election.html" class="select">Election</a>
+        <a href="user_list.html" class="select">User List</a>
+        <a href="dashboard.html" class="select">Dashboard</a>
+    </div>
+
+    <div id="election">
+        <div class="block">
+            <p id="election-title">Create Election</p>
+            <div class="input">
+                <div>
+                <p class="rtitle">Election Name:</p>
+                <input type="text" name="election_name" id="election_name" value="" class="rvalue">
+            </div>
+            <div>
+                <p class="rtitle">Register Deadline</p>
+                <input type="date" name="election_dead" id="election_dead" value="" class="rvalue">
+            </div>
+            <div>
+                <p class="rtitle">Election Date</p>
+                <input type="date" name="election_date" id="election_date" value="" class="rvalue">
+            </div>
+            <div>
+                <p class="rtitle">Description:</p>
+                <textarea name="election_desc" id="election_desc" class="rvalue"></textarea>
+            </div>
+
+            </div>
+            
+            <div id="btn">
+                <a id="back-btn" href="admin_election.html">Back</a>
+                <input type="button" name="create-btn" id="create-btn" value="Create" onclick="javascript:createElection()"/>
+            </div>
+        </div>
+    
+
+    </div>
+</body>
+<script src="js/connectContract.js"></script>
+<script src="js/create_election.js"></script>
+<script>
+    accessToMetamask();
+</script>
+
+
+</html>

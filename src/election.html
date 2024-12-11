@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+  <link rel="stylesheet" href="css/election.css">
+  <title>BlockVote</title>
+</head>
+
+<body>
+  <div class="topnav">
+    <a>BlockVote</a>
+    <a href="index.html" class="select">Log Out</a>
+    <a href="reset_password.html" class="select">Reset Password</a>
+    <a href="election.html" class="select">Election</a>
+    <a href="event.html" class="select">Event</a>
+  </div>
+
+  <div id="election">
+    <div class="block">
+
+      <p id="election-title">Election</p>
+      <p class="list-title">Election Available</p>
+      <div id="election-list">
+        <div class="election e1">
+          <div class="election-detail">
+            <p class="election-name">Student Council Election<br /></p>
+            <p class="election-dead">Register Deadline: 02/01/19<br /></p>
+            <p class="election-date">Election Date: 03/01/19</p>
+          </div>
+          <p class="election-des">The Student Council Election for 2024/25 is an important event where students
+            have the opportunity to elect their peers to represent their interests and contribute to the
+            developmentof the school community.</p>
+          <input type="button" class="can-btn" value="Become Candidate" />
+          <input type="button" class="voter-btn" value="Become Voter" />
+        </div>
+      </div>
+
+      <p class="list-title">Candidiate Election</p>
+      <div id="election-list-can">
+        <div class="election e1">
+          <div class="election-detail">
+            <p class="election-name">Student Council Election<br /></p>
+            <p class="election-dead">Register Deadline: 02/01/19<br /></p>
+            <p class="election-date">Election Date: 03/01/19</p>
+          </div>
+          <p class="election-des">The Student Council Election for 2024/25 is an important event where students
+            have
+            the opportunity to elect their peers to represent their interests and contribute to the
+            development
+            of the school community.</p>
+          <a href="candidate_profile.html" class="can-btn">Edit Candidate</a>
+        </div>
+      </div>
+
+      <p class="list-title">Voter Election</p>
+      <div id="election-list-voter">
+        <div class="election e1">
+          <div class="election-detail">
+            <p class="election-name">Student Council Election<br /></p>
+            <p class="election-dead">Register Deadline: 02/01/19<br /></p>
+            <p class="election-date">Election Date: 03/01/19</p>
+          </div>
+          <p class="election-des">The Student Council Election for 2024/25 is an important event where students
+            have
+            the opportunity to elect their peers to represent their interests and contribute to the
+            development
+            of the school community.</p>
+          <a href="candidate_profile.html" class="can-btn">Edit Candidate</a>
+        </div>
+      </div>
+
+
+      <p class="list-title">Result</p>
+      <div id="election-list-result">
+        <div class="election e1">
+          <div class="election-detail">
+            <p class="election-name">Student Council Election 2024/25</p>
+            <p class="election-dead">Register Deadline: 02/01/19<br /></p>
+            <p class="election-date">Election Date: 03/01/19</p>
+          </div>
+          <p class="election-des">The Student Council Election for 2024/25 is an important event where students
+            have
+            the opportunity to elect their peers to represent their interests and contribute to the
+            development
+            of the school community.</p>
+          <a href="result.html" class="result-btn">View Result</a>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</body>
+
+<script src="js/connectContract.js"></script>
+<script src="js/election.js"></script>
+<script>
+  (async function () {
+    await accessToMetamask();
+    await listElection();
+    await listCandidateElection();
+    await listVoterElection();
+    await listResultElection();
+
+  })();
+</script>
+
+</html>
