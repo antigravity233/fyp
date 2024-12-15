@@ -1,0 +1,109 @@
+@import 'root.css';
+
+#titleOfTable {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 4vh;
+    font-weight: bold;
+}
+
+#votingTransaction, #profileTransaction,
+#electionTransaction, #electionStatusTransaction,
+#requestTransaction, #signUpTransaction,
+#resetTransaction {
+    position: relative;
+    background-color: #ffff;
+    width: 90%;
+    height: fit-content;
+    min-height: 30%;
+    border: solid .5px lightgray;
+    border-radius: 10px;
+    transform: translateY(-8%);
+    margin: 0 auto;
+    padding: 2% 0 1% 0;
+    margin-bottom: 2%;
+    margin-top: 50px;
+
+}
+
+#votingTransaction>table,
+#profileTransaction>table,
+#electionTransaction>table,
+#electionStatusTransaction>table,
+#requestTransaction>table,
+#signUpTransaction>table,
+#resetTransaction>table
+ {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#votingTransaction>table tr:first-child td,
+#profileTransaction>table tr:first-child td,
+#electionTransaction>table tr:first-child td,
+#electionStatusTransaction>table tr:first-child td,
+#requestTransaction>table tr:first-child td,
+#signUpTransaction>table tr:first-child td,
+#resetTransaction>table tr:first-child td {
+    font-weight: bold;
+}
+
+#votingTransaction>table tr td,
+#profileTransaction>table tr td,
+#electionTransaction>table tr td,
+#electionStatusTransaction>table tr td,
+#requestTransaction>table tr td,
+#signUpTransaction>table tr td,
+#resetTransaction>table tr td {
+    line-height: 6vh;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+}
+
+#votingTransaction>table tr td,
+#profileTransaction>table tr td,
+#electionTransaction>table tr td,
+#electionStatusTransaction>table tr td,
+#requestTransaction>table tr td,
+#signUpTransaction>table tr td,
+#resetTransaction>table tr td {
+    line-height: 6vh;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+}
+
+#votingTransaction>table tr td:first-child,
+#profileTransaction>table tr td:first-child,
+#electionTransaction>table tr td:first-child,
+#electionStatusTransaction>table tr td:first-child,
+#requestTransaction>table tr td:first-child,
+#signUpTransaction>table tr td:first-child,
+#resetTransaction>table tr td:first-child {
+    padding-left: 3%;
+    
+}
+
+#votingTransaction>table tr td:last-child,
+#profileTransaction>table tr td:last-child,
+#electionTransaction>table tr td:last-child,
+#electionStatusTransaction>table tr td:last-child,
+#requestTransaction>table tr td:last-child,
+#signUpTransaction>table tr td:last-child,
+#resetTransaction>table tr td:last-child{
+    padding-right: 3%;
+    
+}
+
+#votingTransaction>table tr:last-child td,
+#profileTransaction>table tr:last-child td,
+#electionTransaction>table tr:last-child td,
+#electionStatusTransaction>table tr:last-child td,
+#requestTransaction>table tr:last-child td,
+#signUpTransaction>table tr:last-child td,
+#resetTransaction>table tr:last-child td {
+
+    border-bottom: none;
+}
+
+
+

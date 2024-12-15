@@ -29,7 +29,7 @@
       </div>
       <div>
         <p>Password</p>
-        <input type="text" name="password" id="password">
+        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required name="password" id="password">
       </div>
       <div id="forget">
         <a href="login_forget.html">Forget Your Password?</a>

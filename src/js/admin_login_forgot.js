@@ -4,13 +4,15 @@ async function sentEmail() {
     const _address = document.getElementById('address').value;
     const _email = document.getElementById('email').value;
 
-    const address = await window.contract.methods.userChecker(_address).call();
-    const email = await window.contract.methods.userEmailChecker(_address, _email).call();
+    const address = await window.contract.methods.adminChecker(_address).call();
+    const email = await window.contract.methods.adminEmailChecker(_address, _email).call();
 
     let new_password = generatePass();
 
+    console.log(email);
+
    if (address && email) {
-        await window.contract.methods.resetUserPassword(new_password).send({ from: account });
+        await window.contract.methods.resetAdminPassword(new_password).send({ from: account });
 
 
             let emailData = {
@@ -54,7 +56,7 @@ async function sentEmail() {
 function generatePass() {
     let pass = '';
     let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
-        'abcdefghijklmnopqrstuvwxyz0123456789';
+        'abcdefghijklmnopqrstuvwxyz0123456789'+'!@#$%^&*';
 
     for (let i = 1; i <= 8; i++) {
         let char = Math.floor(Math.random()
@@ -62,6 +64,8 @@ function generatePass() {
 
         pass += str.charAt(char)
     }
+
+    pass+='!';
 
     return pass;
 }

@@ -12,9 +12,7 @@ async function editProfile() {
             election_id = _election_ID[i];
 
         }
-    }
-
-    checkCandidate(election_id)
+    };
 
     _name = document.getElementById('can-name').value;
     _age = document.getElementById('can-age').value;
@@ -25,15 +23,5 @@ async function editProfile() {
             console.log('Candidate'+ account + ' update candidate profile successfully.');
             document.location.href = 'election.html';
         }
-
-}
-
-async function checkCandidate(_election_id) {
-    isCan = await window.contract.methods.candidateChecker(_election_id).call();
-
-    if(!isCan){
-        alert('You are not candidate of this election!!');
-        document.location.href = 'election.html';
-    }
 
 }

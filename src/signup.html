@@ -37,11 +37,13 @@
       </div>
       <div>
         <p>Password</p>
-        <input type="text" name="password" id="password">
+        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
+          title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 characters!!!"
+          name="password" id="password">
       </div>
       <div>
         <p>Confirmation Password</p>
-        <input type="text" name="confirm_password" id="confirm_password">
+        <input type="password" name="confirm_password" id="confirm_password">
       </div>
       <div class="button">
         <input type="button" name="signup-btn" id="signup-btn" value="Sign Up" onclick="javascipt:userSignUp()">

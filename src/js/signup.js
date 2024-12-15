@@ -8,21 +8,55 @@ async function userSignUp() {
     const is_registered1 = await window.contract.methods.userChecker(_address).call();
     const is_registered2 = await window.contract.methods.userEmailChecker(_address, _email).call();
 
+    isValidPassword = validPassword(_password);
+    validEmail = ValidateEmail(_email);
+
     if (is_registered1) {
         alert("The User is already reqistered!!!");
     }
-    else if(is_registered2){
+    else if (is_registered2) {
         alert("The Email is already reqistered!!!");
     }
-    else if(_password != _confirm_password){
+    else if (_password != _confirm_password) {
         alert("The New Password and Confimation Password not match!!!");
     }
     else {
-        console.log('Address '+ account+ ' registered as an User successfully.');
-        if (!(_address === "") && !(_name === "")&& !(_email === "")&& !(_password === "")&& !(_confirm_password === "") ) {
+        console.log('Address ' + account + ' registered as an User successfully.');
+        if (!(_address === "") && !(_name === "") && !(_email === "") && !(_password === "") && !(_confirm_password === "") && isValidPassword && validEmail) {
 
             await window.contract.methods.userSignUp(_address, _name, _email, _password).send({ from: account });
-            alert('Address '+ account+ ' registered as an User successfully.');
+            alert('Address ' + account + ' registered as an User successfully.');
         }
+    }
+}
+
+
+function validPassword(password) {
+    if (!/[^a-zA-Z0-9]/.test(password)) {
+        alert('Must contain at least one number, one uppercase and lowercase letter');
+        return false;
+    }
+    else if (password.length < 8) {
+        alert('Must at least 8 characters ');
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+
+function ValidateEmail(email) {
+
+    const patt = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (patt.test(email)) {
+        return true;
+
+    } else {
+
+        alert("The Email is invalid!!!");
+        return false;
+
     }
 }

@@ -52,6 +52,59 @@ contract VotingSystem {
     mapping(uint256 => userRequest) requests;
     mapping(uint256 => registeredELection) elections;
 
+    event userRegister(
+        address indexed userAddresses,
+        string name,
+        string email,
+        string password
+    );
+    event adminRegister(
+        address indexed adminAddresses,
+        string name,
+        string email,
+        string password
+    );
+    event userReset(address indexed userAddresses, string password);
+    event adminReset(address indexed adminAddresses, string password);
+    event requestSent(
+        address indexed userAddresses,
+        uint256 election,
+        string role
+    );
+    event requestValidate(
+        address indexed adminAddresses,
+        uint256 election,
+        string role
+    );
+    event electionStarted(uint256 indexed election, string status);
+    event electionEnded(uint256 indexed election, string status);
+    event userVoting(
+        address indexed userAddresses,
+        uint256 election,
+        address indexed canAddresses
+    );
+    event candidateProfile(
+        address indexed canAddresses,
+        uint256 election,
+        string name,
+        uint256 age,
+        string desc
+    );
+    event electionCreated(
+        uint256 indexed election,
+        string name,
+        string deadline,
+        string electionDate,
+        string electionDesc
+    );
+    event electionModify(
+        uint256 indexed election,
+        string name,
+        string deadline,
+        string electionDate,
+        string electionDesc
+    );
+
     //user modules
     function userSignUp(
         address _newUserAddress,
@@ -69,6 +122,9 @@ contract VotingSystem {
         user[_newUserAddress].userPassword = _password;
         user[_newUserAddress].registered = true;
         userAddresses.push(_newUserAddress);
+
+        emit userRegister(_newUserAddress, _name, _email, _password);
+
         condition = true;
         return condition;
     }
@@ -78,9 +134,10 @@ contract VotingSystem {
         returns (bool isSuccess)
     {
         bool condition = false;
-        require(bytes(_newPassword).length != 0, "New Password cannot empty");
 
         user[msg.sender].userPassword = _newPassword;
+
+        emit userReset(msg.sender, _newPassword);
 
         condition = true;
         return condition;
@@ -97,12 +154,15 @@ contract VotingSystem {
             admin[_newAdminAddress].registered == false,
             "Error : Admin already exist"
         );
+
         bool condition = false;
+
         admin[_newAdminAddress].adminName = _name;
         admin[_newAdminAddress].adminEmail = _email;
         admin[_newAdminAddress].adminPassword = _password;
         admin[_newAdminAddress].registered = true;
         adminAddresses.push(_newAdminAddress);
+        emit adminRegister(_newAdminAddress, _name, _email, _password);
         condition = true;
         return condition;
     }
@@ -115,6 +175,8 @@ contract VotingSystem {
         require(bytes(_newPassword).length != 0, "New Password cannot empty");
 
         admin[msg.sender].adminPassword = _newPassword;
+
+        emit adminReset(msg.sender, _newPassword);
 
         condition = true;
         return condition;
@@ -140,7 +202,6 @@ contract VotingSystem {
         uint256 _requestID
     ) public returns (bool isSuccess) {
         bool condition = false;
-
         elections[_electionID].validatedCandidate.push(_newCandidateAddress);
         elections[_electionID].candidateVote[_newCandidateAddress] = 0;
         elections[_electionID].isCandidate[_newCandidateAddress] = true;
@@ -190,12 +251,21 @@ contract VotingSystem {
             bytes(_electionDesc).length != 0,
             "Election Description cannot empty"
         );
+
         elections[codeOfElection].electionName = _electionName;
         elections[codeOfElection].deadline = _deadline;
         elections[codeOfElection].electionDate = _electionDate;
         elections[codeOfElection].electionDesc = _electionDesc;
         elections[codeOfElection].electionStatus = "Waiting";
         election.push(codeOfElection);
+
+        emit electionCreated(
+            codeOfElection,
+            _electionName,
+            _deadline,
+            _electionDate,
+            _electionDesc
+        );
 
         codeOfElection++;
         condition = true;
@@ -207,15 +277,26 @@ contract VotingSystem {
         returns (bool isSuccess)
     {
         bool condition = false;
+        require(
+            admin[msg.sender].registered == true,
+            "Error : Must be a admin"
+        );
 
         elections[_electionID].electionStatus = "Started";
+        emit electionStarted(_electionID, "Started");
         condition = true;
         return condition;
     }
 
     function endElection(uint256 _electionID) public returns (bool isSuccess) {
         bool condition = false;
+        require(
+            admin[msg.sender].registered == true,
+            "Error : Must be a admin"
+        );
+
         elections[_electionID].electionStatus = "Ended";
+        emit electionEnded(_electionID, "Ended");
         condition = true;
         return condition;
     }
@@ -244,6 +325,14 @@ contract VotingSystem {
         elections[_electionID].electionDate = _electionDate;
         elections[_electionID].electionDesc = _electionDesc;
 
+        emit electionModify(
+            election[_electionID],
+            _electionName,
+            _deadline,
+            _electionDate,
+            _electionDesc
+        );
+
         condition = true;
 
         return condition;
@@ -260,6 +349,7 @@ contract VotingSystem {
             "Candidate address cannot empty"
         );
         require(_electionID > 0, "Election ID cannot empty");
+        
 
         // Retrieve current vote
         address currentVote = elections[_electionID].vote[msg.sender];
@@ -267,28 +357,28 @@ contract VotingSystem {
         // If already voted for the same candidate
         if (currentVote == _candidateAddress) {
             revert("Already voted for this candidate");
-        }
-        else if (elections[_electionID].vote[msg.sender] != address(0) ){ 
+        } else if (!voterChecker(_electionID)) {
+            revert("Not resgisted voter for this election");
+        } else if (elections[_electionID].vote[msg.sender] != address(0)) {
             // Decrement vote count for the previous candidate if exists
             elections[_electionID].candidateVote[currentVote]--;
             elections[_electionID].candidateVote[_candidateAddress]++;
             elections[_electionID].vote[msg.sender] = _candidateAddress;
+
+            emit userVoting(msg.sender, _electionID, _candidateAddress);
             condition = true;
-        }
-        else {
+        } else {
             // Increment vote count for the new candidate
             elections[_electionID].candidateVote[_candidateAddress]++;
             elections[_electionID].vote[msg.sender] = _candidateAddress;
+            emit userVoting(msg.sender, _electionID, _candidateAddress);
             condition = true;
         }
 
         return condition;
     }
 
-    function voterRequest( uint256 _electionID)
-        public
-        returns (bool isSuccess)
-    {
+    function voterRequest(uint256 _electionID) public returns (bool isSuccess) {
         bool condition = false;
 
         require(_electionID > 0, "Election ID cannot empty");
@@ -298,6 +388,8 @@ contract VotingSystem {
         requests[codeOfRequest].electionID = _electionID;
         requests[codeOfRequest].role = "Voter";
         codeOfRequest++;
+
+        emit requestSent(msg.sender, _electionID, "Voter");
         condition = true;
         return condition;
     }
@@ -314,12 +406,23 @@ contract VotingSystem {
         require(_age > 0, "Candidate age cannot empty");
         require(bytes(_description).length > 0, "Candidate name cannot empty");
 
+        if (!candidateChecker(_electionID)) {
+            revert("Not resgisted candidate for this election");
+        } else {
+            elections[_electionID].candidateName[msg.sender] = _name;
+            elections[_electionID].candidateAge[msg.sender] = _age;
+            elections[_electionID].candidateDesc[msg.sender] = _description;
 
-        elections[_electionID].candidateName[msg.sender] = _name;
-        elections[_electionID].candidateAge[msg.sender] = _age;
-        elections[_electionID].candidateDesc[msg.sender] = _description;
+            emit candidateProfile(
+                msg.sender,
+                _electionID,
+                _name,
+                _age,
+                _description
+            );
+            condition = true;
+        }
 
-        condition = true;
         return condition;
     }
 
@@ -337,6 +440,7 @@ contract VotingSystem {
         requests[codeOfRequest].role = "Candidate";
         codeOfRequest++;
         condition = true;
+        emit requestSent(msg.sender, _electionID, "Candidate");
         return condition;
     }
 
@@ -414,7 +518,6 @@ contract VotingSystem {
         view
         returns (bool isTrue)
     {
-  
         return elections[_electionID].isVoter[msg.sender];
     }
 
@@ -426,7 +529,7 @@ contract VotingSystem {
         return elections[_electionID].isCandidate[msg.sender];
     }
 
-     function electionWaitChecker(uint256 _electionID)
+    function electionWaitChecker(uint256 _electionID)
         public
         view
         returns (bool isTrue)
@@ -590,7 +693,6 @@ contract VotingSystem {
         uint256[] memory canVotes = new uint256[](count);
 
         for (uint256 i = 0; i < count; i++) {
-    
             canNames[i] = elections[_id].candidateName[candidates[i]];
             canAges[i] = elections[_id].candidateAge[candidates[i]];
             canDescs[i] = elections[_id].candidateDesc[candidates[i]];

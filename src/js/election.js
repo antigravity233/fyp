@@ -9,6 +9,10 @@ async function listElection() {
     elm = '';
 
     for (let i = 0; i < election_name.length; i++) {
+
+        isWait = await window.contract.methods.electionWaitChecker(election_id[i]).call();
+        
+        if(isWait){
         elm += `  
         <div class="election e${i + 1}">
                 <div class="election-detail">
@@ -20,6 +24,7 @@ async function listElection() {
         <input type="button" class="can-btn" value="Become Candidate" onclick = "candidateRequest('${election_id[i]}')"/>
         <input type="button" class="voter-btn" value="Become Voter" onclick = "voterRequest('${election_id[i]}')"/>
         </div>`;
+        }
     }
 
     document.getElementById('election-list').innerHTML = elm;

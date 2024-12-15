@@ -29,11 +29,9 @@ async function modifyElection() {
         alert('Election date must after the the register deadline created successfully.');
     }
     else{
-        await window.contract.methods.createElection(_name, _dead, _date, _desc).send({ from: account });
-        console.log('Election '+ _name+ ' created successfully.');
+        await window.contract.methods.modifyElection(election_id, _name, _dead, _date, _desc).send({ from: account });
         document.location.href = 'admin_election.html';
         alert('Election '+ _name+ ' created successfully.');
     }
-
 
 }

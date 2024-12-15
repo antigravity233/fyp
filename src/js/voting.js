@@ -44,18 +44,11 @@ async function candidateList() {
 }
 
 async function voting(_candidateAddress, _electionID) {
-
-    isCan = await window.contract.methods.candidateChecker(_election_id).call();
-
-    if(!isCan){
-        alert('You are not Voter of this election!!');
-        document.location.href = 'election.html';
-    }
-    else{
+  
         await window.contract.methods.voteCandidate(_candidateAddress, _electionID).send({ from: account });
         alert('Vote \'' + _candidateAddress + ' \' successfully');
         document.location.href = 'election.html';
-    }
+
 
 }
 

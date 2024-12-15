@@ -8,6 +8,7 @@ async function sentEmail() {
     const email = await window.contract.methods.userEmailChecker(_address, _email).call();
 
     let new_password = generatePass();
+    
 
    if (address && email) {
         await window.contract.methods.resetUserPassword(new_password).send({ from: account });
@@ -54,7 +55,7 @@ async function sentEmail() {
 function generatePass() {
     let pass = '';
     let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
-        'abcdefghijklmnopqrstuvwxyz0123456789';
+        'abcdefghijklmnopqrstuvwxyz0123456789'+'!@#$%^&*';
 
     for (let i = 1; i <= 8; i++) {
         let char = Math.floor(Math.random()
@@ -63,6 +64,22 @@ function generatePass() {
         pass += str.charAt(char)
     }
 
+    pass+='!';
+
     return pass;
 }
 
+
+function validPassword(password){
+if(!/[^a-zA-Z0-9]/.test(password)){
+    alert('Must contain at least one number, one uppercase and lowercase letter');
+    return false;
+}
+else if(password.length < 8){
+    alert('Must at least 8 characters ');
+    return false;
+}
+else{
+    return true;
+}
+}

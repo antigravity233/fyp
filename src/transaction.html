@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <link rel="stylesheet" href="css/transaction.css">
+    <title>BlockVote</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <a>BlockVote</a>
+        <a href="index.html" class="select">Log Out</a>
+        <a href="admin_reset_password.html" class="select">Reset Password</a>
+        <a href="admin_election.html" class="select">Election</a>
+        <a href="user_list.html" class="select">User List</a>
+        <a href="dashboard.html" class="select">Dashboard</a>
+        <a href="transaction.html" class="select">Transaction</a>
+    </div>
+
+    <div id="votingTransaction">
+        <p id="titleOfTable">Voting Transaction</p>
+        <table>
+            <tr>
+                <td>Transaction Hash</td>
+                <td>Block</td>
+                <td>Event</td>
+                <td>Voter Address</td>
+                <td>Candidate Address</td>
+                <td>Election</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div id="profileTransaction">
+        <p id="titleOfTable">Edit Candidate Profile Transaction</p>
+        <table>
+            <tr>
+                <td>Transaction Hash</td>
+                <td>Block</td>
+                <td>Event</td>
+                <td>Candidate Address</td>
+                <td>Election</td>
+                <td>Candidate Name</td>
+                <td>Candidate Age</td>
+                <td>Candidate Desciption</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div id="electionTransaction">
+        <p id="titleOfTable">Election Transaction</p>
+        <table>
+            <tr>
+                <td>Transaction Hash</td>
+                <td>Block</td>
+                <td>Event</td>
+                <td>Election</td>
+                <td>Election Name</td>
+                <td>Election Deadline</td>
+                <td>Election Date</td>
+                <td>Election Desciption</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div id="electionStatusTransaction">
+        <p id="titleOfTable">Election Status Transaction</p>
+        <table>
+            <tr>
+                <td>Transaction Hash</td>
+                <td>Block</td>
+                <td>Event</td>
+                <td>Election</td>
+                <td>Election Status</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div id="requestTransaction">
+        <p id="titleOfTable">Request Transaction</p>
+        <table>
+            <tr>
+                <td>Transaction Hash</td>
+                <td>Block</td>
+                <td>Event</td>
+                <td>Address</td>
+                <td>Election</td>
+                <td>Role</td>
+            </tr>
+
+        </table>
+    </div>
+
+
+
+    <div id="signUpTransaction">
+        <p id="titleOfTable">SignUp Transaction</p>
+        <table>
+            <tr>
+                <td>Transaction Hash</td>
+                <td>Block</td>
+                <td>Event</td>
+                <td>User Address</td>
+                <td>User Name</td>
+                <td>User Email</td>
+                <td>User Password</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div id="resetTransaction">
+        <p id="titleOfTable">Reset Password Transaction</p>
+        <table>
+            <tr>
+                <td>Transaction Hash</td>
+                <td>Block</td>
+                <td>Event</td>
+                <td>User Address</td>
+                <td>User New Password</td>
+            </tr>
+
+        </table>
+    </div>
+
+
+
+</body>
+
+<script src="js/connectContract.js"></script>
+<script src="js/trasaction.js"></script>
+<script>
+    (async function () {
+        await accessToMetamask();
+        await loadVotingTransaction();
+        await loadProfileTransaction();
+        await loadElectionTransaction();
+        await loadElectionStatusTransaction();
+        await loadRequestTransaction();
+        await loadSignUpTransaction();
+        await loadResetTransaction();
+
+    })();
+</script>
+
+</html>
